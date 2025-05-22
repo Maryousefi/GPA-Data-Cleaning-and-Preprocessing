@@ -32,3 +32,47 @@ Dataset Source: [Student GPA Dataset on Kaggle](https://www.kaggle.com/datasets/
 ```bash
 git clone https://github.com/yourusername/gpa-data-cleaning.git
 cd gpa-data-cleaning
+```
+
+### 2. Install Dependencies
+
+Install the required Python packages:
+
+```bash
+pip install pandas matplotlib seaborn kagglehub
+```
+
+> **Note**: You must also have access to Kaggle and be authenticated with `kagglehub`.
+
+### 3. Run the Notebook
+
+```bash
+jupyter notebook student_gpa_cleaning_updated.ipynb
+```
+
+> **Make sure your Kaggle credentials are configured** to allow dataset downloads.
+
+---
+
+## 📂 File Structure
+
+```
+.
+├── student_gpa_cleaning_updated.ipynb  # Jupyter notebook with full workflow
+├── cleaned_data.csv                    # Exported cleaned dataset
+└── README.md                           # Project documentation
+```
+
+---
+
+## 🔮 Future Improvements
+
+- Add outlier detection for GPA
+- Create GPA trend features (semester-over-semester changes)
+- Apply ML models (e.g., predict dropout or honor eligibility)
+
+---
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).
