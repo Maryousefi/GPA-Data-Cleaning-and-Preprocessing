@@ -1,78 +1,101 @@
-# 🎓 GPA Data Cleaning and Preprocessing
 
-This project focuses on cleaning, preprocessing, and exploring student GPA data sourced from a Kaggle dataset. The goal is to transform raw CSV data into a clean and structured format suitable for further analysis or machine learning applications.
+# GPA Machine Learning Pipeline
 
-Dataset Source: [Student GPA Dataset on Kaggle](https://www.kaggle.com/datasets/mohammadalazawi/student-gpa)
-
----
-
-## 📌 Features
-
-- Downloads data directly from Kaggle using `kagglehub`
-- Cleans and filters raw CSV data
-- Drops irrelevant or unnamed columns
-- Handles missing values and invalid rows
-- Visualizes GPA distributions and missing data
-- Exports a cleaned CSV file for future use
+This project demonstrates a complete data science pipeline for student GPA data, including data cleaning, exploratory analysis, feature engineering, machine learning modeling, and exporting cleaned data. The dataset is downloaded from Kaggle.
 
 ---
 
-## 📊 Example Insights
+## Dataset Source
 
-- **GPA Distribution**: Understand the spread of student GPAs
-- **Missing Value Overview**: Identify data quality issues
-- **Student Count per Semester**: Spot trends over academic terms (if available)
+[Student GPA Dataset on Kaggle](https://www.kaggle.com/datasets/mohammadalazawi/student-gpa)
 
 ---
 
-## 🛠 How to Use
+## Installation and Setup
 
-### 1. Clone the Repository
+1. Clone this repository and navigate into it:
 
 ```bash
-git clone https://github.com/yourusername/gpa-data-cleaning.git
-cd gpa-data-cleaning
+git clone https://github.com/yourusername/gpa-ml-pipeline.git
+cd gpa-ml-pipeline
 ```
 
-### 2. Install Dependencies
-
-Install the required Python packages:
+2. Create and activate a virtual environment (optional but recommended):
 
 ```bash
-pip install pandas matplotlib seaborn kagglehub
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
 ```
 
-> **Note**: You must also have access to Kaggle and be authenticated with `kagglehub`.
-
-### 3. Run the Notebook
+3. Install required packages:
 
 ```bash
-jupyter notebook student_gpa_cleaning_updated.ipynb
+pip install -r requirements.txt
 ```
 
-> **Make sure your Kaggle credentials are configured** to allow dataset downloads.
+4. Set up Kaggle credentials required by `kagglehub` or the Kaggle API to enable dataset download.  
+Follow Kaggle’s instructions to place your `kaggle.json` file in the appropriate location (usually `~/.kaggle/`).
 
 ---
 
-## 📂 File Structure
+## Usage
 
+Run the Jupyter notebook to execute the pipeline step-by-step:
+
+```bash
+jupyter notebook Gpa_ML_Pipeline.ipynb
 ```
+
+The notebook performs the following steps sequentially:
+
+- Download the dataset from Kaggle
+- Clean and validate the data
+- Engineer new features including semester number and cumulative GPA
+- Generate exploratory visualizations such as correlation heatmaps and GPA distributions
+- Train and evaluate a Random Forest regression model to predict final GPA
+- Export the cleaned and processed data to a CSV file
+
+---
+
+## Project Structure
+
+```bash
 .
-├── student_gpa_cleaning_updated.ipynb  # Jupyter notebook with full workflow
-├── cleaned_data.csv                    # Exported cleaned dataset
-└── README.md                           # Project documentation
+├── Gpa_ML_Pipeline.ipynb        # Jupyter notebook with full data pipeline
+├── requirements.txt             # Python dependencies
+├── README.md                    # Project overview and instructions
+├── cleaned_data.csv             # Output cleaned dataset (generated after running)
+└── utils.py                     # Helper functions for modularization (optional)
 ```
 
 ---
 
-## 🔮 Future Improvements
+## Dependencies
 
-- Add outlier detection for GPA
-- Create GPA trend features (semester-over-semester changes)
-- Apply ML models (e.g., predict dropout or honor eligibility)
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- kagglehub (or Kaggle API)
+- warnings (standard Python library)
+- jupyter (for notebook execution)
 
 ---
 
-## 📄 License
+## Notes
 
-This project is released under the [MIT License](LICENSE).
+- This project uses the Kaggle dataset: [mohammadalazawi/student-gpa](https://www.kaggle.com/mohammadalazawi/student-gpa).
+- Ensure your Kaggle API token is correctly configured before running to enable dataset download.
+- The model currently uses two main features: maximum semester number and cumulative GPA to predict final GPA.
+- Data cleaning includes handling missing or malformed semester information to avoid empty or invalid plots.
+- The pipeline is modular and can be extended with additional features or models.
+
+---
+
+## Contact
+
+For questions, issues, or contributions, please open an issue or submit a pull request on GitHub.
+
+---
